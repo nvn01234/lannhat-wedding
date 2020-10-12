@@ -195,20 +195,7 @@
                                         <span style="font-family: 'iCiel Bambola'">Nguyễn Thị Lan</span>
                                     </p>
                                     <br>
-                                    <div class="groom">
-                                        <p>Vào lúc</p>
-                                        <p>
-                                            <span style="font-family: Digital-7; font-size: 35px; color: red;">10:30</span>
-                                            <span style="font-size: 38px;">|</span>
-                                            <img src="img/Sunday.png" alt="" height="30" style="margin-top:-16px">
-                                            <span style="font-size: 38px;">|</span>
-                                            <span style="font-family: 'UTM Trajan Pro Bold'; font-size: 30px; color: red;">01-11-2020</span>
-                                        </p>
-                                        <p>Tại</p>
-                                        <h3 style="font-family: 'Great Vibes'; font-size: 60px;">Van Hoa Center</h3>
-                                        <p style="font-family: 'UTM Trajan Pro Bold'; color: red;"><b>89 Lê Đức Thọ, Q. Nam Từ Liêm, HN</b></p>
-                                    </div>
-                                    <div class="bride" style="display: none">
+                                    <div>
                                         <p>Vào lúc</p>
                                         <p>
                                             <span style="font-family: Digital-7; font-size: 35px; color: red;">16:00</span>
@@ -282,28 +269,18 @@
             'wrapAround': true
         });
 
-        function update(
-            counter,
-            name,
-        ) {
-            $('#counter').countdown(counter, function(event) {
+        $(function() {
+            $('#counter').countdown('2020/10/31 16:00:00', function(event) {
                 $('#counter-days').text(event.strftime('%D'));
                 $('#counter-hours').text(event.strftime('%H'));
                 $('#counter-minutes').text(event.strftime('%M'));
                 $('#counter-seconds').text(event.strftime('%S'));
             });
-            $('#name').text(name);
-        }
 
-        $(function() {
             if (guest !== null) {
                 guest.then(function(doc) {
-                    var dt = doc.data().bride == '1' ? '2020/10/31 16:00:00' : '2020/11/01 10:30:00';
-                    update(dt, doc.data().name);
+                    $('#name').text(doc.data().name);
                 });
-            } else {
-                var dt = '2020/11/01 10:30:00';
-                update(dt, 'bạn');
             }
         })
     </script>
