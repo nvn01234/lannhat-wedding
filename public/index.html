@@ -273,7 +273,9 @@
 
             if (guest !== null) {
                 guest.then(function(doc) {
-                    $('#name').text(doc.data().name);
+                    if (!!doc) {
+                        $('#name').text(doc.data().name);
+                    }
                 });
             }
         })
