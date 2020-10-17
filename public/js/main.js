@@ -185,9 +185,9 @@ var guest = null;
     }
     if ($.cookie('code')) {
         firebase.initializeApp({
-            apiKey: "AIzaSyAR_45WVvFhBf5j1t7WrqsVCj61lUrZv14",
-            authDomain: "nhatlan-wedding.web.app",
-            projectId: "nhatlan-wedding"
+            apiKey: "AIzaSyDX9-KAf5VfJNzy43XqPb-DrwkNKXWNXpk",
+            authDomain: "lannhat-wedding.web.app",
+            projectId: "lannhat-wedding"
         });
         var db = firebase.firestore();
         guest = db.collection('guests').doc($.cookie('code')).get().then(function(doc) {
